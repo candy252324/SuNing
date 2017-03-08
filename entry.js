@@ -1,12 +1,12 @@
 require("./css/reset.css")
 require("./css/style.css")
 
-// require("./fontello/iconfont.css")
+require("./fontello/iconfont.css")
 
 var $=require ("./js/lib/jquery.min.js")
 var Tab=require("./js/com/tab.js")
-// var CarouselFade=require("./js/com/carousel-fade.js")
-// var CarouselSlide=require("./js/com/carousel-slide.js")
+var CarouselFade=require("./js/com/carousel-fade.js")
+var CarouselSlide=require("./js/com/carousel-slide.js")
 // var Exposure=require("./js/com/exposure.js")
 var Event=require("./js/com/event.js")
 
@@ -18,12 +18,12 @@ $(".goods-tab").on("mouseleave",function(){
 })
 
 
-// $(".carousel-fade").each(function(){
-// 	new CarouselFade($(this));
-// })
-// $(".carousel-slide").each(function(){
-// 	new CarouselSlide($(this));
-// })
+$(".carousel-fade").each(function(){
+	new CarouselFade($(this));
+})
+$(".carousel-slide").each(function(){
+	new CarouselSlide($(this));
+})
 //设置大屏轮播的背景色
 var colorList=["#dd182a","#190634","#20a0dd","#200001",]
 Event.on('carousel', function(idx){
