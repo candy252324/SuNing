@@ -1,7 +1,7 @@
 require("./css/reset.css")
 require("./css/style.css")
 
-require("./fontello/iconfont.css")
+// require("./fontello/iconfont.css")
 
 var $=require ("./js/lib/jquery.min.js")
 var Tab=require("./js/com/tab.js")
