@@ -2,7 +2,8 @@ body{
 	font-size: 12px;
 	color:#333;
 	background: #f6f7f8;
-	font-family: arial, tahoma, 宋体;
+	font-family: "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
+	
 }
 li{
 	list-style: none;
@@ -52,6 +53,7 @@ a{
 	border-bottom:1px solid #eee;
 	color:#666;
 	height: 35px;
+	font-family: arial, tahoma, 宋体;
 }
 .tool-bar a{
 	color:#666;
@@ -96,7 +98,7 @@ a{
 }
 .tool-bar-rela:hover .nav-rela{
 	border:1px solid #ddd;
-	padding-bottom: 2px;
+	padding-bottom: 3px;
 	border-bottom: 0;
 	background: #fff;
 }
@@ -123,7 +125,8 @@ a{
 	margin-right: 5px;
 	font-weight: bold;
 }
-.purchase-car .num{
+.purchase-car .num,
+.top-fix-bar .top-fix-btn .num{
 	position: relative;
 	display: inline-block;
 	min-width:8px;
@@ -154,7 +157,6 @@ a{
 	width: 100px;
 	font-size: 14px;
 	line-height: 17px;
-	font-family: "Microsoft Yahei";
 }
 .web-nav-content dd{
 	float: left;
@@ -274,14 +276,16 @@ a{
 	width: 558px;
 	margin-left: 40px;
 }
-.header-search .search-box{
+.header-search .search-box,
+.top-fix-search .search-box{
 	position: relative;
 	float: right;
 	width: 556px;
 	border:2px solid #ffc001;
 	background: #fff;
 }
-.header-search .search-box i.icon{
+.header-search .search-box i.icon,
+.top-fix-search .search-box i.icon{
 	position: absolute;
 	width: 25px;
 	height: 30px;
@@ -331,10 +335,7 @@ a{
 	font-weight: bold;
 	font-size: 16px;
 }
-.header-nav{
-	font-family:"Microsoft Yahei",tahoma,arial,"Hiragino Sans GB"; 
-}
-.header-nav .goods-list{
+.goods-list{
 	position: relative;
 	z-index: 100;
 	float: left;
@@ -343,13 +344,13 @@ a{
 	background: #ffc001;
 	padding-left: 12px;
 }
-.header-nav .goods-list .goods-tab>ul{
+.goods-list .goods-tab>ul{
 	box-sizing: border-box;
 	height: 458px;
 	line-height: 34px;
 	padding-top: 10px;
 }
-.header-nav .goods-list>a{
+.goods-list>a{
 	line-height: 36px;
 	font-size: 14px;
 	font-weight: bold;
@@ -364,30 +365,28 @@ a{
 	line-height: 36px;
 	padding:0 12px;
 }
-
-
 .header-nav .goods-menu li a{
 	color:#333;
 	font-size: 15px;
 }
-.header-nav .goods-tab >ul{
+.goods-list .goods-tab >ul{
 	position: absolute;
 	left: 0;
 	width: 190px;
 	background: #f4f4f4;
 	opacity: .95;
 }
-.header-nav .goods-tab >ul li{
+.goods-list .goods-tab >ul li{
 	position: relative;
 	padding:0 12px;
 }
 
-.header-nav .goods-tab >ul li a{
+.goods-list .goods-tab >ul li a{
 	color:#333;
 	font-size: 13px;
 	margin-right: 5px;
 }
-.header-nav .goods-tab span{
+.goods-list .goods-tab span{
 	float: right;
 	width: 0;
 	height: 0;
@@ -396,10 +395,10 @@ a{
 	border-left: 5px solid #fff;
 	display: none;
 }
-.header-nav .goods-tab >ul li:hover span{
+ .goods-tab >ul li:hover span{
 	display: block;
 }
-.goods-tab .panel{
+ .goods-tab .panel{
 	box-sizing: border-box;
 	position: absolute;
 	z-index: 1000;
@@ -488,7 +487,6 @@ a{
 	top:10px;
 	right: 0;
 	padding-top: 10px;
-	font-family: "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
 	background: #fff;
 	overflow: hidden;
 }
@@ -1114,8 +1112,6 @@ a{
 	text-align: center;
 	margin: 0 21px;
 	color:#d18592;
-	font-family: 'microsoft yahei';
-
 }
 .floor .hot-word{
 	width: 383px;
@@ -1136,7 +1132,6 @@ a{
 	height: 25px;
 	line-height: 25px;
 	color:#666;
-	font-family:  "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
 }
 .floor a.behind{
 	position: relative;
@@ -1464,7 +1459,7 @@ a{
 	height: 50px;
 	margin:0;
 	text-align: center;
-	font:16px "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB";
+	font-size:16px;
 	color:#222;
 	background: url("../img/rank-logo.png") 0 0 no-repeat;
 }
@@ -1531,11 +1526,6 @@ a{
 .promise{
 	padding: 12px 0;
 	border-bottom: 1px solid #eaeaea;
-	font-family: "Microsoft Yahei";
-
-}
-footer .layout{
-	font-family: "Microsoft Yahei";
 }
 .promise dl{
 	float: left;
@@ -1586,12 +1576,12 @@ footer .layout{
 .flag .search{
 	display: block;
 	width: 105px;
-	height: 25px;
+	height: 24px;
 	margin-top: 5px;
-	background: url(../img/promise.png) -140px -49px no-repeat;
+	background: url(../img/promise.png) -140px -50px no-repeat;
 }
 .flag .search:hover{
-	background: url(../img/promise.png) -140px -74px no-repeat;
+	background: url(../img/promise.png) -140px -75px no-repeat;
 }
 .promise dl dd a:hover{
 	color:#ff6600;
@@ -1607,7 +1597,6 @@ footer .layout{
 	width: 1050px;
 	height: 180px;
 	float: left;
-	font-family: "Microsoft Yahei";
 }
 .help-box dl{
 	width: 210px;
@@ -1621,7 +1610,6 @@ footer .layout{
 	font-size: 14px;
 	color:#545454;
 	overflow: hidden;
-	font-family: "Microsoft Yahei";
 }
 .help-box dd{
 	line-height: 22px;
@@ -1637,7 +1625,7 @@ footer .layout{
 }
 footer{
 	background: #33302b;
-	font-family: "Microsoft Yahei";
+	min-width: 1190px;
 }
 footer span{
 	color:#888;
@@ -1648,8 +1636,7 @@ footer span{
 	position: relative;
 	width: 1275px;
 	left: -50px;
-	padding:12px 0 40px;
-	font-family: "Microsoft Yahei";
+	padding:12px 0 25px;
 }
 .flag dl{
 	width: 324px;
@@ -1714,9 +1701,6 @@ p.copyright{
 .guide-list li:hover a{
 	color: #fff;
 }
-.guide-list li a{
-	font-family:  'microsoft yahei';	
-}
 .guide-list li.active a{
 	color:#fff;
 	background: #fa0;
@@ -1756,9 +1740,6 @@ p.copyright{
 	width: 35px;
 	height: 30px;
 	margin-bottom: 5px;
-}
-.sidebar  a{
-	font-family: "Microsoft Yahei";
 }
 .sidebar .mycart{
 	display: block;
@@ -1897,4 +1878,59 @@ p.copyright{
 }
 .sidebar .go-top:hover{
 	background-position: -26px -186px;
+}
+.top-fix-bar{
+	position: fixed;
+	z-index: 999 ;
+	width: 100%;
+	height: 50px;
+	top: 0;
+	left: 0;
+	opacity: .95; 
+	background: #fff;
+	display: none;
+	box-shadow: 0 1px 5px rgba(0,0,0,.2);
+}
+.top-fix-bar a{
+	font: "Microsoft Yahei",tahoma,arial,"Hiragino Sans GB"!important;
+}
+.top-fix-bar .tab-nav{
+	display: none;
+}
+
+.top-fix-bar .top-fix-sort:hover .tab-nav{
+	display: block;
+}
+.top-fix-bar .top-fix-sort{
+	float: left;
+	margin-top: 8px;
+}
+.top-fix-bar .top-fix-search .search-box{
+	float: left;
+	margin-left: 150px;
+	margin-top: 3px;
+}
+.top-fix-bar .top-fix-btn{
+	float: right;
+	height: 34px;
+	line-height: 34px;
+	margin-top: 8px;
+}
+.top-fix-bar .top-fix-btn .sign{
+	float: left;
+	margin-right: 12px;
+}
+.top-fix-bar .top-fix-btn .sign:hover{
+	background: #eee;
+}
+.top-fix-bar .top-fix-btn  a{
+	float: left;
+	padding: 0 10px;
+}
+.top-fix-bar .top-fix-btn  a:hover{
+	color:#f60;
+}
+.top-fix-bar .top-fix-btn .cart i{
+	margin-right: 3px;
+	font-weight: bold;
 }

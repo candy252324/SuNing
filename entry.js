@@ -11,19 +11,19 @@ var CarouselSlide=require("./js/com/carousel-slide.js")
 var Event=require("./js/com/event.js")
 
 
-Tab.init($('.tab'));
-$(".goods-tab").on("mouseleave",function(){
-		$(".goods-tab .tab-nav li").removeClass('active');
-		$(".goods-tab .panel").removeClass('active');
-})
+// Tab.init($('.tab'));
+// $(".goods-tab").on("mouseleave",function(){
+// 		$(".goods-tab .tab-nav li").removeClass('active');
+// 		$(".goods-tab .panel").removeClass('active');
+// })
 
 
-$(".carousel-fade").each(function(){
-	new CarouselFade($(this));
-})
-$(".carousel-slide").each(function(){
-	new CarouselSlide($(this));
-})
+// $(".carousel-fade").each(function(){
+// 	new CarouselFade($(this));
+// })
+// $(".carousel-slide").each(function(){
+// 	new CarouselSlide($(this));
+// })
 //设置大屏轮播的背景色
 var colorList=["#dd182a","#190634","#20a0dd","#200001",]
 Event.on('carousel', function(idx){
@@ -49,15 +49,21 @@ $('.top-open').on('click',function(){
 var	navArr=['.js-f1' ,'.js-f2','.js-f3','.js-f4','.js-f5','.js-f6' ,'.js-f7','.js-f8','.js-f9','.js-f10','.js-f11','.js-f12','.js-getmore'],
 	contentArr=['.floor1' ,'.floor2','.floor3','.floor4','.floor5' ,'.floor6','.floor7','.floor8','.floor9' ,'.floor10','.floor11','.floor12','.getmore'];
 
+setGuide()
 guideStatus()
-guideStyle()
+
+setTopBar()
+topBarStatus()
 
 $(window).on('scroll',function(){
+	topBarStatus()
 	guideStatus();
-	guideStyle();
+	setGuide();
 })
 
-//定义页面滚动动画
+
+
+//设置页面滚动动画
 for(var i=0; i<navArr.length; i++){
 	(function(i){
 		$(navArr[i]).on('click',function(){
@@ -68,7 +74,30 @@ for(var i=0; i<navArr.length; i++){
 }
 
 
-//定义导航条是否可见
+
+
+
+//设置顶部工具条内容
+function setTopBar(){
+	var $goodsList=$('.goods-list').clone(),
+		$searchBox=$('.search-box').clone();
+
+	$('.top-fix-sort').append($goodsList);
+	$('.top-fix-search').append($searchBox);
+	
+}
+
+//设置顶部工具条是否可见
+function topBarStatus(){
+	if($(window).scrollTop()>800){
+		$(".top-fix-bar").css({"display":"block"})
+	}else{
+		$(".top-fix-bar").css({"display":"none"})
+	}
+}
+
+
+//设置左侧导航条是否可见
 function guideStatus(){
 	var bottomDis1=$('.getmore').offset().top+$('.getmore').outerHeight(),
 		bottomDis2=$('.guide-list').offset().top+$('.guide-list').outerHeight();
@@ -95,8 +124,8 @@ function guideStatus(){
 }
 
 
-//定义页面滚动时导航条样式
-function guideStyle(){
+//设置页面滚动时左侧导航条样式
+function setGuide(){
 	for(var i=0; i<navArr.length; i++){
 		$(navArr[i]).removeClass('active');
 		if(halfVisible($(contentArr[i]))){
@@ -123,7 +152,19 @@ function halfVisible($target){
 
 
 
+Tab.init($('.tab'));
+$(".goods-tab").on("mouseleave",function(){
+		$(".goods-tab .tab-nav li").removeClass('active');
+		$(".goods-tab .panel").removeClass('active');
+})
 
+
+$(".carousel-fade").each(function(){
+	new CarouselFade($(this));
+})
+$(".carousel-slide").each(function(){
+	new CarouselSlide($(this));
+})
 
 
 
