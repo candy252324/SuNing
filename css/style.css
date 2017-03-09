@@ -110,7 +110,7 @@ a{
 	border:1px solid #ddd;
 	padding: 10px 0;
 	background: #fff;
-	display: none;
+	opacity: 0;
 }
 
 .content-abs a .hot, .goods-menu a .hot{
@@ -176,9 +176,6 @@ a{
 	padding:0 10px;
 }
 
-.tool-bar-rela:hover>.content-abs{
-	display: block;
-}
 .tool-bar-right{
 	float: right;
 }
@@ -1720,17 +1717,16 @@ p.copyright{
 	z-index: 1000;
 }
 .sidebar .top{
-	position: absolute;
-	top: 178px;
+	margin-top: 178px;
 	background: #383838;
 }
 .sidebar .mid{
-	position: absolute;
-	top:430px;
+	margin-top:96px;
 }
 .sidebar .bottom{
 	position: absolute;
 	width: 35px;
+	padding-top: 200px;
 	bottom: 5px;
 	background: #383838;
 }
@@ -1784,33 +1780,41 @@ p.copyright{
 	line-height: 30px;
 	left: -73px;
 	bottom: 0;
+	z-index: -1;
 	text-align: center;
 	color:#383838;
 	background: #ffaa01;
-	display: none;
+	transition: all .2s;
+}
+.sidebar .my-code .tip{
+	position: absolute;
+	width: 167px;
+	height: 236px;;
+	left: -160px;
+	bottom: 0;
+	color:#383838;
+	background: transparent;
 }
 .sidebar .bottom .code-wrap{
 	position: absolute;
 	width: 160px;
 	height: 236px;
-	left:-160px;
+	left:0px;
 	bottom: 0;
 	background: url(../img/sidebar-code-wrap.png);
-	display: none;
 }
 .sidebar .bottom .code-img{
 	position: absolute;
 	width: 134px;
 	height: 134px;
 	bottom: 45px;
-	left: -147px;
-	display: none;
+	left: 13px;
 }
 .sidebar .bottom .code-arrow{
 	position: absolute;
 	width: 7px;
 	height: 20px;
-	left: 0;
+	right: 0px;
 	bottom: 5px;
 	background: url("../img/sidebaricon.png") -38px -219px no-repeat;
 	display: none;
@@ -1855,28 +1859,28 @@ p.copyright{
 	background-position: 0 -186px;
 }
 
-.sidebar .member:hover{
+.sidebar .icon-wrap:hover .member{
 	background-position: -26px 0;
 }
-.sidebar .finance:hover{
+.sidebar .icon-wrap:hover .finance{
 	background-position: -26px -47px;
 }
-.sidebar .clock:hover{
+.sidebar .icon-wrap:hover .clock{
 	background-position: -26px -70px;
 }
-.sidebar .sign:hover{
+.sidebar .icon-wrap:hover .sign{
 	background-position: -26px -93px;
 }
-.sidebar .consult:hover{
+.sidebar .icon-wrap:hover .consult{
 	background-position: -26px -117px;
 }
-.sidebar .feedback:hover{
+.sidebar .icon-wrap:hover .feedback{
 	background-position: -26px -138px;
 }
-.sidebar .code:hover{
+.sidebar .icon-wrap:hover .code{
 	background-position: -26px -163px;
 }
-.sidebar .go-top:hover{
+.sidebar .icon-wrap:hover .go-top{
 	background-position: -26px -186px;
 }
 .top-fix-bar{

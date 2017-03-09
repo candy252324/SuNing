@@ -18,12 +18,14 @@ var Event=require("./js/com/event.js")
 // })
 
 
-// $(".carousel-fade").each(function(){
-// 	new CarouselFade($(this));
-// })
-// $(".carousel-slide").each(function(){
-// 	new CarouselSlide($(this));
-// })
+$(".carousel-fade").each(function(){
+	new CarouselFade($(this));
+})
+$(".carousel-slide").each(function(){
+	new CarouselSlide($(this));
+})
+
+
 //设置大屏轮播的背景色
 var colorList=["#dd182a","#190634","#20a0dd","#200001",]
 Event.on('carousel', function(idx){
@@ -63,6 +65,37 @@ $(window).on('scroll',function(){
 
 
 
+
+
+
+
+// 顶部导航栏下拉动画
+$('.content-abs').slideUp().css({"opacity":"1"});
+$(".tool-bar-rela").on('mouseenter',function(){
+	$(this).find('.content-abs').slideDown(100);
+})
+$(".tool-bar-rela").on('mouseleave',function(){
+	$(this).find('.content-abs').slideUp(100);
+})
+
+//右侧工具栏动画
+$(".icon-wrap").find($(".tip")).css({ 
+		'opacity':0,
+		'left':0
+}); 
+$(".icon-wrap").on('mouseleave',function(){
+	$(this).find($(".tip")).css({ 
+		'left':0
+	}); 
+})
+$(".icon-wrap").on('mouseenter',function(){
+	$(this).find($(".tip")).removeAttr('style')
+})
+
+
+
+
+
 //设置页面滚动动画
 for(var i=0; i<navArr.length; i++){
 	(function(i){
@@ -72,8 +105,6 @@ for(var i=0; i<navArr.length; i++){
 
 	})(i)
 }
-
-
 
 
 
@@ -128,13 +159,13 @@ function guideStatus(){
 function setGuide(){
 	for(var i=0; i<navArr.length; i++){
 		$(navArr[i]).removeClass('active');
-		if(halfVisible($(contentArr[i]))){
+		if(isVisible($(contentArr[i]))){
 			$(navArr[i]).addClass('active');
 		}
 	}
 }
 
-
+//判断一个元素是否可见
 function isVisible($target){
 		var winH=$(window).height(),
 		    scrollTop=$(window).scrollTop(),
@@ -142,6 +173,15 @@ function isVisible($target){
 		    $targetH=$target.innerHeight();
 		return ((winH+scrollTop>offsetTop)&&(scrollTop<offsetTop+$targetH));
 	}
+
+
+
+
+
+
+
+
+	
 function halfVisible($target){
 	var winH=$(window).height(),
 	    scrollTop=$(window).scrollTop(),
@@ -159,12 +199,6 @@ $(".goods-tab").on("mouseleave",function(){
 })
 
 
-$(".carousel-fade").each(function(){
-	new CarouselFade($(this));
-})
-$(".carousel-slide").each(function(){
-	new CarouselSlide($(this));
-})
 
 
 
