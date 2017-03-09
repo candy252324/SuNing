@@ -100,9 +100,8 @@ $(".icon-wrap").on('mouseenter',function(){
 for(var i=0; i<navArr.length; i++){
 	(function(i){
 		$(navArr[i]).on('click',function(){
-			$('html,body').animate({scrollTop: $(contentArr[i]).offset().top}, 500);
+			$('html,body').animate({scrollTop: $(contentArr[i]).offset().top-50}, 500);
 		})
-
 	})(i)
 }
 
@@ -146,7 +145,7 @@ function guideStatus(){
 	 isVisible($('.floor11'))|
 	 isVisible($('.floor12'))|
 	 isVisible($('.getmore')))
-	&&(bottomDis1-bottomDis2)>300) {
+	&&(bottomDis1-bottomDis2)>200) {
 		$(".guide-list").css({"display":"block"})
 	}
 	else{
@@ -154,18 +153,16 @@ function guideStatus(){
 	}
 }
 
-
 //设置页面滚动时左侧导航条样式
 function setGuide(){
 	for(var i=0; i<navArr.length; i++){
 		$(navArr[i]).removeClass('active');
-		if(isVisible($(contentArr[i]))){
+		if(halfVisible($(contentArr[i]))){
 			$(navArr[i]).addClass('active');
 		}
 	}
 }
 
-//判断一个元素是否可见
 function isVisible($target){
 		var winH=$(window).height(),
 		    scrollTop=$(window).scrollTop(),
@@ -173,15 +170,6 @@ function isVisible($target){
 		    $targetH=$target.innerHeight();
 		return ((winH+scrollTop>offsetTop)&&(scrollTop<offsetTop+$targetH));
 	}
-
-
-
-
-
-
-
-
-	
 function halfVisible($target){
 	var winH=$(window).height(),
 	    scrollTop=$(window).scrollTop(),

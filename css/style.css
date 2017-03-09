@@ -1722,6 +1722,7 @@ p.copyright{
 }
 .sidebar .mid{
 	margin-top:96px;
+	background: #383838;
 }
 .sidebar .bottom{
 	position: absolute;
@@ -1814,7 +1815,7 @@ p.copyright{
 	position: absolute;
 	width: 7px;
 	height: 20px;
-	right: 0px;
+	left:0;
 	bottom: 5px;
 	background: url("../img/sidebaricon.png") -38px -219px no-repeat;
 	display: none;
