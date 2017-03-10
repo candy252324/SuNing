@@ -19,7 +19,7 @@
 define(['../lib/jquery.min.js','./event.js'],function($,Event) {
 
 	var Carousel=(function(){
-		
+			
 			var Carousel=function ($carousel){
 				this.$pre=$carousel.find(".pre")	  
 				this.$next=$carousel.find(".next")    
@@ -27,12 +27,13 @@ define(['../lib/jquery.min.js','./event.js'],function($,Event) {
 				this.$bullet=$carousel.find(".bullet")   
 				this.$items=this.$ct.children()
 
-				imgCount=this.$items.length
-				imgWidth=this.$items.width()
+				this.imgCount=this.$items.length
+				this.imgWidth=this.$items.width()
+
 				this.curIdx=0
 				this.isAnimate=false
 
-				this.$ct.css({width:imgWidth*imgCount})
+				this.$ct.css({width:this.imgWidth*this.imgCount})
 				this.init()
 
 			}
@@ -68,9 +69,9 @@ define(['../lib/jquery.min.js','./event.js'],function($,Event) {
 						for(var i=0;i<idx;i++){
 							$cur.$ct.prepend($cur.$ct.children().last());
 						}
-						$cur.$ct.css({left:-imgWidth*idx});
-						$cur.$ct.animate({left:'+='+idx*imgWidth},function(){
-							$cur.curIdx=($cur.curIdx+imgCount-idx)%imgCount;
+						$cur.$ct.css({left:-$cur.imgWidth*idx});
+						$cur.$ct.animate({left:'+='+idx*$cur.imgWidth},function(){
+							$cur.curIdx=($cur.curIdx+$cur.imgCount-idx)%$cur.imgCount;
 							$cur.setList();
 							$cur.isAnimate=false;
 							$cur.playAuto();
@@ -85,12 +86,12 @@ define(['../lib/jquery.min.js','./event.js'],function($,Event) {
 					if(!$cur.isAnimate){
 						$cur.isAnimate=true;
 						$cur.stopAuto();
-						$cur.$ct.animate({left:'-='+idx*imgWidth},function(){
+						$cur.$ct.animate({left:'-='+idx*$cur.imgWidth},function(){
 							for(var i=0;i<idx;i++){
 								$cur.$ct.append($cur.$ct.children().first());
 							}
 							$cur.$ct.css({left:0});
-							$cur.curIdx=($cur.curIdx+idx)%imgCount;
+							$cur.curIdx=($cur.curIdx+idx)%$cur.imgCount;
 							$cur.setList();
 							$cur.isAnimate=false;
 							$cur.playAuto();

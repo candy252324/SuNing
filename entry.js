@@ -1,23 +1,15 @@
 require("./css/reset.css")
 require("./css/style.css")
-
 require("./fontello/iconfont.css")
 
 var $=require ("./js/lib/jquery.min.js")
 var Tab=require("./js/com/tab.js")
 var CarouselFade=require("./js/com/carousel-fade.js")
 var CarouselSlide=require("./js/com/carousel-slide.js")
-// var Exposure=require("./js/com/exposure.js")
 var Event=require("./js/com/event.js")
+var LazyLoad=require("./js/com/lazyload.js")
 
-
-// Tab.init($('.tab'));
-// $(".goods-tab").on("mouseleave",function(){
-// 		$(".goods-tab .tab-nav li").removeClass('active');
-// 		$(".goods-tab .panel").removeClass('active');
-// })
-
-
+LazyLoad.init();
 $(".carousel-fade").each(function(){
 	new CarouselFade($(this));
 })
@@ -26,24 +18,7 @@ $(".carousel-slide").each(function(){
 })
 
 
-//设置大屏轮播的背景色
-var colorList=["#dd182a","#190634","#20a0dd","#200001",]
-Event.on('carousel', function(idx){
-	$(".show-case").css({"background":colorList[idx],"transition":"all 1s"})
-});
 
-
-//顶部消息显示与否
-$('.top-close').on('click',function(){
-	$(".top").css({"display":"none"})
-	$(".top-open").css({"display":"block"})
-
-})
-$('.top-open').on('click',function(){
-	$(".top").css({"display":"block"})
-	$(".top-open").css({"display":"none"})
-
-})
 
 
 
@@ -64,10 +39,32 @@ $(window).on('scroll',function(){
 })
 
 
+// 设置大屏轮播的背景色
+var colorList=["#201816","#FF094A","#20A0DD","#190634","#F1A62F","#310B62"]
+Event.on('carousel', function(idx){
+	$(".show-case").css({"background":colorList[idx],"transition":"all 1s"})
+});
 
+//新人弹窗
+$('.close').on('click',function(){
+	$(".new-user").css({"display":"none"})
+})
 
+//顶部消息显示与否
+$('.top-close').on('click',function(){
+	$(".top-news").css({"display":"none"})
+	$(".top-open").css({"display":"block"})
 
+})
+$('.top-open').on('click',function(){
+	$(".top-news").css({"display":"block"})
+	$(".top-open").css({"display":"none"})
 
+})
+//回到顶部
+$(".go-top").on('click', function(){
+	 $('html,body').animate({scrollTop: '0px'}, 800);
+});
 
 // 顶部导航栏下拉动画
 $('.content-abs').slideUp().css({"opacity":"1"});
@@ -162,6 +159,10 @@ function setGuide(){
 		}
 	}
 }
+
+
+
+
 
 function isVisible($target){
 		var winH=$(window).height(),

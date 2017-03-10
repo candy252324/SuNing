@@ -31,11 +31,15 @@ define(['../lib/jquery.min.js','./event.js'],function($,Event) {
 				this.$bullet=$carousel.find(".bullet"); 
 				this.$items=this.$ct.children();
 
-				imgCount=this.$items.length;
-				
-				this.curIdx=3
+				this.imgCount=this.$items.length;
+				this.imgWidth=this.$items.width();
+				this.imgHeight=this.$items.height();
+
+				this.curIdx=0
 				this.isAnimate=false
 
+
+				this.$ct.css({width:this.imgWidth,height:this.imgHeight})  //避免this.$ct高度塌陷
 				this.init()
 
 			}
@@ -53,7 +57,7 @@ define(['../lib/jquery.min.js','./event.js'],function($,Event) {
 					this.$next.on('click',function(){
 						$cur.playNext();
 					});
-					this.$bullet.find("li").on("click",function(){
+					this.$bullet.find("li").on("mouseenter",function(){
 						var idx=$(this).index();
 						$cur.play(idx);
 					})
@@ -70,14 +74,18 @@ define(['../lib/jquery.min.js','./event.js'],function($,Event) {
 					if(this.isAnimate) return;
 					this.isAnimate = true;
 					this.stopAuto();
-					this.curIdx=(idx+imgCount)%imgCount;
-					this.$items.fadeOut(1000);
-					this.$items.eq(this.curIdx).fadeIn(1000, function(){
+
+					this.curIdx=(idx+$cur.imgCount)%$cur.imgCount;
+					this.$items.fadeOut(500);
+					this.$items.eq(this.curIdx).fadeIn(500, function(){
 						$cur.isAnimate = false;
 						$cur.playAuto();
 					});
 					this.setBullet();
-					Event.fire('carousel',this.curIdx);
+					
+					if ($cur.$ct.hasClass('js-bg-color')) {
+						Event.fire('carousel',this.curIdx);
+					}
 				},
 				setBullet:function(){
 					var $cur=this;
